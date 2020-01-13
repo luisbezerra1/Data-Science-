@@ -1,0 +1,5153 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Python_Data_Science_Numpy.ipynb",
+      "provenance": [],
+      "toc_visible": true,
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.6.5"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/luisbezerra1/Data-Science-/blob/master/Python_Data_Science_Numpy.ipynb_13_01_2020\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "do3kUOLbltjE"
+      },
+      "source": [
+        "# <font color=green> PYTHON PARA DATA SCIENCE - NUMPY\n",
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "umSz9TLxltjG"
+      },
+      "source": [
+        "# <font color=green> 1. INTRODUÇÃO AO PYTHON\n",
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "gSnX12-sltjH"
+      },
+      "source": [
+        "# 1.1 Introdução"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "SRG_k55kltjI"
+      },
+      "source": [
+        "> Python é uma linguagem de programação de alto nível com suporte a múltiplos paradigmas de programação. É um projeto *open source* e desde seu surgimento, em 1991, vem se tornando uma das linguagens de programação interpretadas mais populares. \n",
+        ">\n",
+        "> Nos últimos anos Python desenvolveu uma comunidade ativa de processamento científico e análise de dados e vem se destacando como uma das linguagens mais relevantes quando o assunto é ciência de dados e machine learning, tanto no ambiente acadêmico como também no mercado."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "2oZuKvWkltjJ"
+      },
+      "source": [
+        "# 1.2 Instalação e ambiente de desenvolvimento"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "v4P8bMEIltjK"
+      },
+      "source": [
+        "### Instalação Local\n",
+        "\n",
+        "### https://www.python.org/downloads/\n",
+        "### ou\n",
+        "### https://www.anaconda.com/distribution/"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "FZtu5tjrltjL"
+      },
+      "source": [
+        "### Google Colaboratory\n",
+        "\n",
+        "### https://colab.research.google.com"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "C6vbfq8DltjM"
+      },
+      "source": [
+        "### Verificando versão"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "jeuAt-4NltjM",
+        "outputId": "4b6c0c4b-6097-4132-c202-c7b73cc0cb7c",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 1000
+        }
+      },
+      "source": [
+        "!python -v"
+      ],
+      "execution_count": 0,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "import _frozen_importlib # frozen\n",
+            "import _imp # builtin\n",
+            "import sys # builtin\n",
+            "import '_warnings' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import '_thread' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import '_weakref' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import '_frozen_importlib_external' # <class '_frozen_importlib.FrozenImporter'>\n",
+            "import '_io' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'marshal' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'posix' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import _thread # previously loaded ('_thread')\n",
+            "import '_thread' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import _weakref # previously loaded ('_weakref')\n",
+            "import '_weakref' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# installing zipimport hook\n",
+            "import 'zipimport' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# installed zipimport hook\n",
+            "# /usr/lib/python3.6/encodings/__pycache__/__init__.cpython-36.pyc matches /usr/lib/python3.6/encodings/__init__.py\n",
+            "# code object from '/usr/lib/python3.6/encodings/__pycache__/__init__.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/codecs.cpython-36.pyc matches /usr/lib/python3.6/codecs.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/codecs.cpython-36.pyc'\n",
+            "import '_codecs' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'codecs' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53eb2400>\n",
+            "# /usr/lib/python3.6/encodings/__pycache__/aliases.cpython-36.pyc matches /usr/lib/python3.6/encodings/aliases.py\n",
+            "# code object from '/usr/lib/python3.6/encodings/__pycache__/aliases.cpython-36.pyc'\n",
+            "import 'encodings.aliases' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ebfda0>\n",
+            "import 'encodings' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53f24f28>\n",
+            "# /usr/lib/python3.6/encodings/__pycache__/utf_8.cpython-36.pyc matches /usr/lib/python3.6/encodings/utf_8.py\n",
+            "# code object from '/usr/lib/python3.6/encodings/__pycache__/utf_8.cpython-36.pyc'\n",
+            "import 'encodings.utf_8' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ecdba8>\n",
+            "import '_signal' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/encodings/__pycache__/latin_1.cpython-36.pyc matches /usr/lib/python3.6/encodings/latin_1.py\n",
+            "# code object from '/usr/lib/python3.6/encodings/__pycache__/latin_1.cpython-36.pyc'\n",
+            "import 'encodings.latin_1' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ed56d8>\n",
+            "# /usr/lib/python3.6/__pycache__/io.cpython-36.pyc matches /usr/lib/python3.6/io.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/io.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/abc.cpython-36.pyc matches /usr/lib/python3.6/abc.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/abc.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/_weakrefset.cpython-36.pyc matches /usr/lib/python3.6/_weakrefset.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/_weakrefset.cpython-36.pyc'\n",
+            "import '_weakrefset' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ed9668>\n",
+            "import 'abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ed5cc0>\n",
+            "import 'io' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ed5908>\n",
+            "# /usr/lib/python3.6/__pycache__/warnings.cpython-36.pyc matches /usr/lib/python3.6/warnings.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/warnings.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/re.cpython-36.pyc matches /usr/lib/python3.6/re.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/re.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/enum.cpython-36.pyc matches /usr/lib/python3.6/enum.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/enum.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/types.cpython-36.pyc matches /usr/lib/python3.6/types.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/types.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/functools.cpython-36.pyc matches /usr/lib/python3.6/functools.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/functools.cpython-36.pyc'\n",
+            "import '_functools' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/collections/__pycache__/__init__.cpython-36.pyc matches /usr/lib/python3.6/collections/__init__.py\n",
+            "# code object from '/usr/lib/python3.6/collections/__pycache__/__init__.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/_collections_abc.cpython-36.pyc matches /usr/lib/python3.6/_collections_abc.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/_collections_abc.cpython-36.pyc'\n",
+            "import '_collections_abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e3d080>\n",
+            "# /usr/lib/python3.6/__pycache__/operator.cpython-36.pyc matches /usr/lib/python3.6/operator.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/operator.cpython-36.pyc'\n",
+            "import '_operator' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'operator' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e46e48>\n",
+            "# /usr/lib/python3.6/__pycache__/keyword.cpython-36.pyc matches /usr/lib/python3.6/keyword.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/keyword.cpython-36.pyc'\n",
+            "import 'keyword' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dfb240>\n",
+            "# /usr/lib/python3.6/__pycache__/heapq.cpython-36.pyc matches /usr/lib/python3.6/heapq.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/heapq.cpython-36.pyc'\n",
+            "import '_heapq' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'heapq' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dfbac8>\n",
+            "import 'itertools' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/__pycache__/reprlib.cpython-36.pyc matches /usr/lib/python3.6/reprlib.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/reprlib.cpython-36.pyc'\n",
+            "import 'reprlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e060b8>\n",
+            "import '_collections' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'collections' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e9b668>\n",
+            "# /usr/lib/python3.6/__pycache__/weakref.cpython-36.pyc matches /usr/lib/python3.6/weakref.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/weakref.cpython-36.pyc'\n",
+            "import 'weakref' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e9ba90>\n",
+            "import 'functools' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e86e10>\n",
+            "# /usr/lib/python3.6/collections/__pycache__/abc.cpython-36.pyc matches /usr/lib/python3.6/collections/abc.py\n",
+            "# code object from '/usr/lib/python3.6/collections/__pycache__/abc.cpython-36.pyc'\n",
+            "import 'collections.abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e8ea90>\n",
+            "import 'types' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e860b8>\n",
+            "import 'enum' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e73fd0>\n",
+            "# /usr/lib/python3.6/__pycache__/sre_compile.cpython-36.pyc matches /usr/lib/python3.6/sre_compile.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/sre_compile.cpython-36.pyc'\n",
+            "import '_sre' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/__pycache__/sre_parse.cpython-36.pyc matches /usr/lib/python3.6/sre_parse.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/sre_parse.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/sre_constants.cpython-36.pyc matches /usr/lib/python3.6/sre_constants.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/sre_constants.cpython-36.pyc'\n",
+            "import 'sre_constants' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dae470>\n",
+            "import 'sre_parse' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53daff98>\n",
+            "import 'sre_compile' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53e8ef60>\n",
+            "import '_locale' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/__pycache__/copyreg.cpython-36.pyc matches /usr/lib/python3.6/copyreg.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/copyreg.cpython-36.pyc'\n",
+            "import 'copyreg' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dc52b0>\n",
+            "import 're' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53eebcc0>\n",
+            "import 'warnings' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53edef60>\n",
+            "# /usr/lib/python3.6/__pycache__/site.cpython-36.pyc matches /usr/lib/python3.6/site.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/site.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/os.cpython-36.pyc matches /usr/lib/python3.6/os.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/os.cpython-36.pyc'\n",
+            "import 'errno' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/__pycache__/stat.cpython-36.pyc matches /usr/lib/python3.6/stat.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/stat.cpython-36.pyc'\n",
+            "import '_stat' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "import 'stat' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ddc9e8>\n",
+            "# /usr/lib/python3.6/__pycache__/posixpath.cpython-36.pyc matches /usr/lib/python3.6/posixpath.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/posixpath.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/__pycache__/genericpath.cpython-36.pyc matches /usr/lib/python3.6/genericpath.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/genericpath.cpython-36.pyc'\n",
+            "import 'genericpath' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53de5048>\n",
+            "import 'posixpath' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53ddf780>\n",
+            "import 'os' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dcc400>\n",
+            "# /usr/lib/python3.6/__pycache__/_sitebuiltins.cpython-36.pyc matches /usr/lib/python3.6/_sitebuiltins.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/_sitebuiltins.cpython-36.pyc'\n",
+            "import '_sitebuiltins' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53dcc7f0>\n",
+            "# /usr/lib/python3.6/__pycache__/sysconfig.cpython-36.pyc matches /usr/lib/python3.6/sysconfig.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/sysconfig.cpython-36.pyc'\n",
+            "import 'sysconfig' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53de56d8>\n",
+            "# /usr/lib/python3.6/__pycache__/_sysconfigdata_m_linux_x86_64-linux-gnu.cpython-36.pyc matches /usr/lib/python3.6/_sysconfigdata_m_linux_x86_64-linux-gnu.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/_sysconfigdata_m_linux_x86_64-linux-gnu.cpython-36.pyc'\n",
+            "import '_sysconfigdata_m_linux_x86_64-linux-gnu' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d78e10>\n",
+            "# /usr/lib/python3.6/__pycache__/_bootlocale.cpython-36.pyc matches /usr/lib/python3.6/_bootlocale.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/_bootlocale.cpython-36.pyc'\n",
+            "import '_bootlocale' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d80dd8>\n",
+            "# /usr/lib/python3.6/importlib/__pycache__/__init__.cpython-36.pyc matches /usr/lib/python3.6/importlib/__init__.py\n",
+            "# code object from '/usr/lib/python3.6/importlib/__pycache__/__init__.cpython-36.pyc'\n",
+            "import 'importlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d9b2e8>\n",
+            "# /usr/lib/python3.6/importlib/__pycache__/util.cpython-36.pyc matches /usr/lib/python3.6/importlib/util.py\n",
+            "# code object from '/usr/lib/python3.6/importlib/__pycache__/util.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/importlib/__pycache__/abc.cpython-36.pyc matches /usr/lib/python3.6/importlib/abc.py\n",
+            "# code object from '/usr/lib/python3.6/importlib/__pycache__/abc.cpython-36.pyc'\n",
+            "# /usr/lib/python3.6/importlib/__pycache__/machinery.cpython-36.pyc matches /usr/lib/python3.6/importlib/machinery.py\n",
+            "# code object from '/usr/lib/python3.6/importlib/__pycache__/machinery.cpython-36.pyc'\n",
+            "import 'importlib.machinery' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d96588>\n",
+            "import 'importlib.abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d9be80>\n",
+            "# /usr/lib/python3.6/__pycache__/contextlib.cpython-36.pyc matches /usr/lib/python3.6/contextlib.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/contextlib.cpython-36.pyc'\n",
+            "import 'contextlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53da6240>\n",
+            "import 'importlib.util' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d9b6a0>\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# destroy google.cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# destroy google.cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# destroy google.cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# destroy google.cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/cloud\n",
+            "# destroy google.cloud\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google/logging\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/mpl_toolkits\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/google\n",
+            "# destroy google\n",
+            "# possible namespace for /usr/local/lib/python3.6/dist-packages/sphinxcontrib\n",
+            "# /usr/lib/python3.6/__pycache__/sitecustomize.cpython-36.pyc matches /usr/lib/python3.6/sitecustomize.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/sitecustomize.cpython-36.pyc'\n",
+            "import 'sitecustomize' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d3f908>\n",
+            "import 'site' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53eeb6d8>\n",
+            "Python 3.6.9 (default, Nov  7 2019, 10:44:02) \n",
+            "[GCC 8.3.0] on linux\n",
+            "Type \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n",
+            "# extension module 'readline' loaded from '/usr/lib/python3.6/lib-dynload/readline.cpython-36m-x86_64-linux-gnu.so'\n",
+            "# extension module 'readline' executed from '/usr/lib/python3.6/lib-dynload/readline.cpython-36m-x86_64-linux-gnu.so'\n",
+            "import 'readline' # <_frozen_importlib_external.ExtensionFileLoader object at 0x7f6a53d3f978>\n",
+            "import 'atexit' # <class '_frozen_importlib.BuiltinImporter'>\n",
+            "# /usr/lib/python3.6/__pycache__/rlcompleter.cpython-36.pyc matches /usr/lib/python3.6/rlcompleter.py\n",
+            "# code object from '/usr/lib/python3.6/__pycache__/rlcompleter.cpython-36.pyc'\n",
+            "import 'rlcompleter' # <_frozen_importlib_external.SourceFileLoader object at 0x7f6a53d3fcf8>\n",
+            ">>> "
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "v86aEyR2ltjR"
+      },
+      "source": [
+        "# 1.3 Trabalhando com arrays Numpy"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "6FEhElzNltjR",
+        "colab": {}
+      },
+      "source": [
+        "import numpy as np"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "qjL5wPLKltjU",
+        "colab": {}
+      },
+      "source": [
+        "k = np.loadtxt('carros-km.txt')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OFaxgUptltjW",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        "anos = np.loadtxt('carros-anos.txt')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "FXjYowRDltjZ",
+        "colab": {}
+      },
+      "source": [
+        "km = k/(2019-anos)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "f_d2Ya-vltjb",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "hxLZatdeltje",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "GLsHBNakltjg",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "oSSYu6nhltji",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "D6qMoutGltjk",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "XIBz0Vowltjn",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "u8_CU3F4ltjq",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "wMdUsAq4ltjs"
+      },
+      "source": [
+        "### Obtendo a quilometragem média por ano"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "cD2M3s3Fltjt",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "65IyPzKKltjv",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Z0JCmAWvltjy",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "KdG5NmmGltj0"
+      },
+      "source": [
+        "# <font color=green> 2. CARACTERÍSTICAS BÁSICAS DA LINGUAGEM\n",
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "X1K5kisFltj1"
+      },
+      "source": [
+        "# 2.1 Operações matemáticas\n",
+        "\n",
+        "### Operadores aritméticos: $+$, $-$, $*$, $/$, $**$, $\\%$, $//$"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "8YCDVpbYltj1"
+      },
+      "source": [
+        "### Adição ($+$)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "h6DsMqhaltj2",
+        "colab": {}
+      },
+      "source": [
+        "2+2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "WeJG-WJBltj8"
+      },
+      "source": [
+        "### Subtração ($-$)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "zoB7_OcRltj9",
+        "colab": {}
+      },
+      "source": [
+        "2-2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "zuv8N7fjltkC"
+      },
+      "source": [
+        "### Multiplicação ($*$)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "TAWG7xSTltkD",
+        "colab": {}
+      },
+      "source": [
+        "2*3"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "dMp7BsnwltkF"
+      },
+      "source": [
+        "### Divisão ($/$) e ($//$)\n",
+        "A operação divisão sempre retorna um número de ponto flutuante"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "DD5kx3H3ltkF",
+        "colab": {}
+      },
+      "source": [
+        "10/3"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "ji0CYH3UltkI",
+        "colab": {}
+      },
+      "source": [
+        "10//3"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "3DSO7TcvltkL"
+      },
+      "source": [
+        "### Exponenciação ($**$)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "tBKvl2TWltkM",
+        "colab": {}
+      },
+      "source": [
+        "2**3"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "MhD56p-9ltkQ"
+      },
+      "source": [
+        "### Resto da divisão ($\\%$)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bfa7phO6ltkR",
+        "colab": {}
+      },
+      "source": [
+        "10 % 3"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "khIEx6olltkT",
+        "colab": {}
+      },
+      "source": [
+        "10 % 2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "8pVVp5fsltkV"
+      },
+      "source": [
+        "### Expressões matemáticas"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "jlQTk4gNltkW",
+        "colab": {}
+      },
+      "source": [
+        "5 *2 + 3 * 2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "kkCb6Crgltka",
+        "colab": {}
+      },
+      "source": [
+        "(5 *2) +( 3 * 2)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "UD12tlgAltkd",
+        "colab": {}
+      },
+      "source": [
+        "5 *(2 + 3) * 2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "a5tKQ5Beltkf"
+      },
+      "source": [
+        "### A variável _\n",
+        "\n",
+        "No modo interativo, o último resultado impresso é atribuído à variável _"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "VkHEx516ltkg",
+        "colab": {}
+      },
+      "source": [
+        "5*2"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "dFShsobXltki",
+        "colab": {}
+      },
+      "source": [
+        "_+ 3* 2 "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "hJIpR3KUltkk",
+        "colab": {}
+      },
+      "source": [
+        "_ / 2 "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "MUrQAf6Mltkm"
+      },
+      "source": [
+        "# 2.2 Variáveis "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "qaVLKIeultkn"
+      },
+      "source": [
+        "### Nomes de variáveis\n",
+        "\n",
+        "- Nomes de variáveis pode começar com letras (a - z, A - Z) ou o caractere *underscore* (_):\n",
+        "\n",
+        "    > Altura\n",
+        "    >\n",
+        "    > _peso\n",
+        "    \n",
+        "- O restante do nome pode conter letras, números e o caractere \"_\":\n",
+        "\n",
+        "    > nome_da_variavel\n",
+        "    >\n",
+        "    > _valor\n",
+        "    >\n",
+        "    > dia_28_11_\n",
+        "    \n",
+        "\n",
+        "- O nomes são *case sensitive*:\n",
+        "\n",
+        "    > Nome_Da_Variável $\\ne$ nome_da_variavel $\\ne$ NOME_DA_VARIAVEL\n",
+        "    \n",
+        "### <font color=red>Observações:\n",
+        "- Existem algumas palavras reservadas da linguagem que não podem ser utilizadas como nomes de variável:\n",
+        "\n",
+        "| |Lista de palavras <br>reservadas em Python| |\n",
+        "|:-------------:|:------------:|:-------------:|\n",
+        "| and           | as           | not           | \n",
+        "| assert        | finally      | or            | \n",
+        "| break         | for          | pass          | \n",
+        "| class         | from         | nonlocal      | \n",
+        "| continue      | global       | raise         | \n",
+        "| def           | if           | return        | \n",
+        "| del           | import       | try           | \n",
+        "| elif          | in           | while         | \n",
+        "| else          | is           | with          | \n",
+        "| except        | lambda       | yield         | \n",
+        "| False         | True         | None          | "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "3frWjfAtltkn"
+      },
+      "source": [
+        "### Declaração de variáveis\n",
+        "\n",
+        "### Operadores de atribuição: $=$, $+=$, $-=$, $*=$, $/=$, $**=$, $\\%=$, $//=$"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "7VIcrXNHltko",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019 \n",
+        "ano_fabricacao = 2003 \n",
+        "km_total = 44410.0"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "atVoqp6bltkq",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "_t82qXrOltkt",
+        "colab": {}
+      },
+      "source": [
+        "ano_fabricacao"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "1anwuDHiltkv",
+        "colab": {}
+      },
+      "source": [
+        "km_total"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "gCBkfq_8ltky"
+      },
+      "source": [
+        "# $$km_{média} = \\frac {km_{total}}{(Ano_{atual} - Ano_{fabricação})}$$"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "zswWS4hNltky"
+      },
+      "source": [
+        "### Operações com variáveis"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "HxxU0rnfltkz",
+        "colab": {}
+      },
+      "source": [
+        "km_media =km_total/(ano_atual- ano_fabricacao)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "_2Qhb32jltk1",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019 \n",
+        "ano_fabricacao = 2010\n",
+        "km_total = 44410.0\n",
+        "km_media =km_total/(ano_atual- ano_fabricacao)\n",
+        "km_media"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "nCJzA7dyltk3",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019 \n",
+        "ano_fabricacao = 2010\n",
+        "km_total = 44410.0\n",
+        "km_media =km_total/(ano_atual- ano_fabricacao)\n",
+        "km_total = km_total + km_media\n",
+        "km_total"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "ifRwQ0vEltk9",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019 \n",
+        "ano_fabricacao = 2010\n",
+        "km_total = 44410.0\n",
+        "km_media =km_total/(ano_atual- ano_fabricacao)\n",
+        "km_total +=km_media\n",
+        "km_total"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "fDBrHWSBltlB"
+      },
+      "source": [
+        "### Conclusão:\n",
+        "```\n",
+        "\"valor = valor + 1\" é equivalente a \"valor += 1\"\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "uVAyJbmAltlC"
+      },
+      "source": [
+        "### Declaração múltipla"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "oMWEzjPOltlC",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual,ano_fabricacao, km_total =  2019 ,2003, 44410.0\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "9ZKlHkLultlE",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "-mcMuW9nltlG",
+        "colab": {}
+      },
+      "source": [
+        "ano_fabricacao"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "WFFavLIvltlL",
+        "colab": {}
+      },
+      "source": [
+        "km_total"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "iFawOJe6ltlO",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual,ano_fabricacao, km_total =  2019 ,2003, 44410.0\n",
+        "km_media =km_total/(ano_atual- ano_fabricacao)\n",
+        "km_total = km_total + km_media\n",
+        "km_total"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "uoRXMeRDltlQ"
+      },
+      "source": [
+        "# 2.3 Tipos de dados"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "sW_G6EjWltlQ"
+      },
+      "source": [
+        "Os tipos de dados especificam como números e caracteres serão armazenados e manipulados dentro de um programa. Os tipos de dados básicos do Python são:\n",
+        "\n",
+        "1. **Números**\n",
+        "    1. ***int*** - Inteiros\n",
+        "    - ***float*** - Ponto flutuante\n",
+        "- **Booleanos** - Assume os valores True ou False. Essencial quando começarmos a trabalhar com declarações condicionais\n",
+        "- ***Strings*** - Sequência de um ou mais caracteres que pode incluir letras, números e outros tipos de caracteres. Representa um texto.\n",
+        "- **None** - Representa a ausência de valor"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "-HRRxQOtltlQ"
+      },
+      "source": [
+        "### Números"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5PKIcIuUltlR",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "G32Yd1g0ltlT",
+        "colab": {}
+      },
+      "source": [
+        "type(ano_atual)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "b9_v__dEltlV",
+        "colab": {}
+      },
+      "source": [
+        "km_total = 44410.0"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "A0nySb3LltlZ",
+        "colab": {}
+      },
+      "source": [
+        "type(km_total)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "7X9iheAnltld"
+      },
+      "source": [
+        "### Booleanos"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "liUYdchPltle",
+        "colab": {}
+      },
+      "source": [
+        "zero_km = True"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "oZIQAghaltlh",
+        "colab": {}
+      },
+      "source": [
+        "type (zero_km)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "XCAYApe3ltlj",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "mJ0nGEV7ltll",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Ipjq4eiSltlp"
+      },
+      "source": [
+        "### Strings"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OeW_GQzOltlr",
+        "colab": {}
+      },
+      "source": [
+        "nome = 'Jetta Variant'"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "xF1Bi-Rkltlu",
+        "colab": {}
+      },
+      "source": [
+        "nome "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "QlobSFUtltlw",
+        "colab": {}
+      },
+      "source": [
+        "nome = \"Jetta Variant\""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "8LBWzzfbltly",
+        "colab": {}
+      },
+      "source": [
+        "nome "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "ycEhoxtUltl0",
+        "colab": {}
+      },
+      "source": [
+        "nome = 'Jetta \"Variant\"'"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bjZQzpuUltl2",
+        "colab": {}
+      },
+      "source": [
+        "nome"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "cVVeENMfTlpq",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "carro = '''\n",
+        "nome\n",
+        "idade\n",
+        "nota\n",
+        "''' \n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UYwhCfpST0Rq",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "carro "
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "xaNeLTE2T2Q7",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "type(carro)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "w6bJU-R9ltl5"
+      },
+      "source": [
+        "### None"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "RgeVhXGxltl5",
+        "colab": {}
+      },
+      "source": [
+        "quilometragem = None\n"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "MJI6PKS6ltl8",
+        "colab": {}
+      },
+      "source": [
+        "type(quilometragem)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "_ilupwV-ltl-"
+      },
+      "source": [
+        "# 2.4 Conversão de tipos"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "D5hq5Qbvltl-",
+        "colab": {}
+      },
+      "source": [
+        "a = 10 \n",
+        "b = 20 \n",
+        "c ='Python é '\n",
+        "d = 'legal'"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "aJ0vi8_Nltl_",
+        "colab": {}
+      },
+      "source": [
+        "type(a)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "29FVH7p7ltmB",
+        "colab": {}
+      },
+      "source": [
+        "type(b)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "NGseTO2SltmC",
+        "colab": {}
+      },
+      "source": [
+        "type(c)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "yaSBhwNWltmE",
+        "colab": {}
+      },
+      "source": [
+        "type(d)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5zMXVwLHltmF",
+        "colab": {}
+      },
+      "source": [
+        "a+b"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "JJrqKRZFltmJ",
+        "colab": {}
+      },
+      "source": [
+        "c+d"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "hWEIttpgltmM",
+        "colab": {}
+      },
+      "source": [
+        "#c+a"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "dByigpENltmO"
+      },
+      "source": [
+        "### Conversões de tipo\n",
+        "\n",
+        "Funções int(), float(), str()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "MtecvWlsltmP",
+        "colab": {}
+      },
+      "source": [
+        "str(a)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "S1NuIhDVltmS",
+        "colab": {}
+      },
+      "source": [
+        "type(str(a))"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "3kCUD1X-ltmT",
+        "colab": {}
+      },
+      "source": [
+        "c+str(a)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "TTjSEVRaltmU",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "P1P1bXaYltmV",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "F_8Cn0aAltmW",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "_KA6MUgmltmY",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "7uiCxqUcltma",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "gGpflJMYltmd"
+      },
+      "source": [
+        "# 2.5 Indentação, comentários e formatação de *strings*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "XbijUgqVltmw"
+      },
+      "source": [
+        "### Indentação\n",
+        "\n",
+        "Na linguagem Python os programas são estruturados por meio de indentação. Em qualquer linguagem de programação a prática da indentação é bastante útil, facilitando a leitura e também a manutenção do código. Em Python a indentação não é somente uma questão de organização e estilo, mas sim um requisito da linguagem."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "DqXANnyultmw",
+        "colab": {}
+      },
+      "source": [
+        "ano_atual = 2019\n",
+        "ano_fabricacao = 2019\n",
+        "\n",
+        "if (ano_atual == ano_fabricacao):\n",
+        "    print('Verdadeiro')\n",
+        "else:\n",
+        "    print('Falso')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "dNBfv7x7ltmy"
+      },
+      "source": [
+        "### Comentários\n",
+        "\n",
+        "Comentários são extremamente importantes em um programa. Consiste em um texto que descreve o que o programa ou uma parte específica do programa está fazendo. Os comentários são ignorados pelo interpretador Python. \n",
+        "\n",
+        "Podemos ter comentários de uma única linha ou de múltiplas linhas."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "GN3DfwiRltmy",
+        "colab": {}
+      },
+      "source": [
+        "# Isto é um comentário\n",
+        "ano_atual = 2019\n",
+        "ano_atual"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "PICBiohFltm2",
+        "colab": {}
+      },
+      "source": [
+        "# Isto\n",
+        "# é um \n",
+        "# comentário\n",
+        "ano_atual = 2019\n",
+        "ano_atual"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "PTkJ4Vjultm4",
+        "colab": {}
+      },
+      "source": [
+        "'''Isto é um\n",
+        "comentário'''\n",
+        "ano_atual = 2019\n",
+        "ano_atual"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "SYEGdALxltm5",
+        "colab": {}
+      },
+      "source": [
+        "# Definindo variáveis\n",
+        "ano_atual = 2019\n",
+        "ano_fabricacao = 2019\n",
+        "\n",
+        "'''\n",
+        "Estrutura condicional que vamos \n",
+        "aprender na próxima aula\n",
+        "'''\n",
+        "if (ano_atual == ano_fabricacao):   # Testando se condição é verdadeira\n",
+        "    print('Verdadeiro')\n",
+        "else:                               # Testando se condição é falsa\n",
+        "    print('Falso')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "8--bcJ01ltm8"
+      },
+      "source": [
+        "### Formatação de *strings*"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "8lSC0XEDltm-"
+      },
+      "source": [
+        "## *str % valor*\n",
+        "https://docs.python.org/3.6/library/stdtypes.html#old-string-formatting"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "aqqBQJ8kltm_",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "EFK1y92vltnA",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "3Y-V_AVDltnD",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "pr4wrDaSltnE",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "iQVGzKNvltnF",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "CMovhJZ_ltnG"
+      },
+      "source": [
+        "## *str.format()*\n",
+        "\n",
+        "https://docs.python.org/3.6/library/stdtypes.html#str.format"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "N12xmMehltnG",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "mRBmU9G1ltnJ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "wpqEsTwnltnL",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "V-wPNUN9ltnN"
+      },
+      "source": [
+        "## *f-Strings*\n",
+        "\n",
+        "https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "7Fq_WPv0ltnO",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bE3qbd6WltnR",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "_IZuNE48ltnS"
+      },
+      "source": [
+        "# <font color=green> 3. TRABALHANDO COM LISTAS\n",
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "zhS89xysltnS"
+      },
+      "source": [
+        "# 3.1 Criando listas\n",
+        "\n",
+        "Listas são sequências **mutáveis** que são utilizadas para armazenar coleções de itens, geralmente homogêneos. Podem ser construídas de várias formas:\n",
+        "```\n",
+        "- Utilizando um par de colchetes: [ ], [ 1 ]\n",
+        "- Utilizando um par de colchetes com itens separados por vírgulas: [ 1, 2, 3 ]\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "aE4UWF10ltnS",
+        "colab": {}
+      },
+      "source": [
+        "Acessorios = ['Rodas de liga', 'Travas elétricas', 'Piloto automático', 'Bancos de couro', 'Ar condicionado', 'Sensor de estacionamento', 'Sensor crepuscular', 'Sensor de chuva']\n",
+        "Acessorios"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Mmlkh5TVltnT"
+      },
+      "source": [
+        "### Lista com tipos de dados variados"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Mfpu7NoJltnT",
+        "colab": {}
+      },
+      "source": [
+        "Carro_1 = ['Jetta Variant', 'Motor 4.0 Turbo', 2003, 44410.0, False, ['Rodas de liga', 'Travas elétricas', 'Piloto automático'], 88078.64]\n",
+        "Carro_2 = ['Passat', 'Motor Diesel', 1991, 5712.0, False, ['Central multimídia', 'Teto panorâmico', 'Freios ABS'], 106161.94]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "EJSJFJjKltnV",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "7MMG7L8VltnX",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "7E8erLgZltnZ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "5yMXJ0xdltna"
+      },
+      "source": [
+        "# 3.2 Operações com listas\n",
+        "\n",
+        "https://docs.python.org/3.6/library/stdtypes.html#common-sequence-operations"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "YSorJOGlltna"
+      },
+      "source": [
+        "## *x in A*\n",
+        "\n",
+        "Retorna **True** se um elemento da lista *A* for igual a *x*."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "GgSP_nlHltnb",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "_JyyHPmWltnd",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "tebg9gAyltne",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "W_1PKJYsltnf",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "1WNsBXFyltng",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "RF6_rf90ltnh"
+      },
+      "source": [
+        "## *A + B*\n",
+        "\n",
+        "Concatena as listas *A* e *B*."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "8lnzbYnRltnh",
+        "colab": {}
+      },
+      "source": [
+        "A = ['Rodas de liga', 'Travas elétricas', 'Piloto automático', 'Bancos de couro']\n",
+        "B = ['Ar condicionado', 'Sensor de estacionamento', 'Sensor crepuscular', 'Sensor de chuva']"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "SzbiHHF4ltni",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "It5Cn5aXltni",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "l7gF4Ph5ltnj",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "iTv5t7zAltnk"
+      },
+      "source": [
+        "## *len(A)*\n",
+        "\n",
+        "Tamanho da lista A."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "dtbuCDSOltnk",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "k7wWCbAmltnl"
+      },
+      "source": [
+        "# 3.3 Seleções em listas"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "uF3NmgUaltnl"
+      },
+      "source": [
+        "## *A[ i ]*\n",
+        "\n",
+        "Retorna o i-ésimo item da lista *A*.\n",
+        "\n",
+        "<font color=red>**Observação:**</font> Listas têm indexação com origem no zero."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "f5ct7w1Wltnm",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "-BLG7yifltnn",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "SoL6PIjJltno",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "pGMDc5FLltnq",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "m3AaFe73ltnr",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "AeDJviqoltns",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "KdenG1BZltnt",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "iOjsfrlFltnu",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "6BrON70Zltnu",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "9WgwxPIMltnv"
+      },
+      "source": [
+        "## *A[ i : j ]*\n",
+        "\n",
+        "Recorta a lista *A* do índice i até o j. Neste fatiamento o elemento com índice i é **incluído** e o elemento com índice j **não é incluído** no resultado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bJzL2PMiltnv",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "sFAlJ4u_ltnw",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "dFdTBWa9ltnz",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "yxxB2-_Dltn0",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "R-S-LCPGltn0"
+      },
+      "source": [
+        "# 3.4 Métodos de listas\n",
+        "\n",
+        "https://docs.python.org/3.6/library/stdtypes.html#mutable-sequence-types"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "j9s2OyyPltn1"
+      },
+      "source": [
+        "## *A.sort()*\n",
+        "\n",
+        "Ordena a lista *A*."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "A2dJGhFsltn1",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "VDWCHlTcltn2",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "N9Spp7-xltn3"
+      },
+      "source": [
+        "## *A.append(x)*\n",
+        "\n",
+        "Adiciona o elemnto *x* no final da lista *A*."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "l7I_U-sRltn4",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "eiP3oACPltn6"
+      },
+      "source": [
+        "## *A.pop(i)*\n",
+        "\n",
+        "Remove e retorna o elemento de índice i da lista *A*.\n",
+        "\n",
+        "<font color=red>**Observação:**</font> Por *default* o método *pop()* remove e retorna o último elemento de uma lista."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "BoCKa5Hqltn6",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "GfGX1jw-ltn9",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "tppe9tqbltn-",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Ku6ZHTdJltn_",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "NySIp62hltoC"
+      },
+      "source": [
+        "## *A.copy()*\n",
+        "\n",
+        "Cria uma cópia da lista *A*.\n",
+        "\n",
+        "<font color=red>**Observação:**</font> O mesmo resultado pode ser obtido com o seguinte código: \n",
+        "```\n",
+        "A[:]\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "yP9ODygcltoC",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "W3eQdVWkltoF",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OVbvjjmdltoG",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "P-MN1JfAltoH",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "ZVQ38eqVltoJ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bqPiw5wSltoM",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Lo9WgzF6ltoP",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "r2LPHB34ltoQ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "UQqUkO8YltoR",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5hC4R-jNltoS",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "8zMZNsg2ltoU"
+      },
+      "source": [
+        "# <font color=green> 4. ESTRUTURAS DE REPETIÇÃO E CONDICIONAIS\n",
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "gxUmCLyJltoU"
+      },
+      "source": [
+        "# 4.1 Instrução *for*\n",
+        "\n",
+        "#### Formato padrão\n",
+        "\n",
+        "```\n",
+        "for <variável> in <coleção>:\n",
+        "    <instruções>\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Irl5oa0altoU"
+      },
+      "source": [
+        "### Loops com listas"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "E1LZ5n25ltoV",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Z459QqsFltoY",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Gbztj9T4ltoZ"
+      },
+      "source": [
+        "###  List comprehensions\n",
+        "\n",
+        "https://docs.python.org/3.6/tutorial/datastructures.html#list-comprehensions"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "4Y8g0cSHjbof"
+      },
+      "source": [
+        "*range()* -> https://docs.python.org/3.6/library/functions.html#func-range"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "xDo9TLdYltoZ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "V12p_CQBltoc",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OOzHHRWHltof",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "TKynwnxgltog",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "d77YH_dVltoh",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "3OmElLO2ltoi",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "HKUkvcDkltok",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "AcAcaKFXltom"
+      },
+      "source": [
+        "# 4.2 Loops aninhados"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "mjgJCo3dlton",
+        "colab": {}
+      },
+      "source": [
+        "dados = [ \n",
+        "    ['Rodas de liga', 'Travas elétricas', 'Piloto automático', 'Bancos de couro', 'Ar condicionado', 'Sensor de estacionamento', 'Sensor crepuscular', 'Sensor de chuva'],\n",
+        "    ['Central multimídia', 'Teto panorâmico', 'Freios ABS', '4 X 4', 'Painel digital', 'Piloto automático', 'Bancos de couro', 'Câmera de estacionamento'],\n",
+        "    ['Piloto automático', 'Controle de estabilidade', 'Sensor crepuscular', 'Freios ABS', 'Câmbio automático', 'Bancos de couro', 'Central multimídia', 'Vidros elétricos']\n",
+        "]\n",
+        "dados"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "pLgxwApVltop",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OYnDRvcYltor",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "DbJa5_cJltos",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "RrGAOy1rn1Dj"
+      },
+      "source": [
+        "## *set()*\n",
+        "\n",
+        "https://docs.python.org/3.6/library/stdtypes.html#types-set\n",
+        "\n",
+        "https://docs.python.org/3.6/library/functions.html#func-set"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "CuB-9ClSltos",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "9hHKKABhltot"
+      },
+      "source": [
+        "### List comprehensions"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "T6t79LTlltot",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "cJ4fPdj5ltou"
+      },
+      "source": [
+        "# 4.3 Instrução *if*\n",
+        "\n",
+        "#### Formato padrão\n",
+        "\n",
+        "```\n",
+        "if <condição>:\n",
+        "     <instruções caso a condição seja verdadeira>\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "bqOYDJiWltou"
+      },
+      "source": [
+        "### Operadores de comparação: $==$, $!=$, $>$, $<$, $>=$, $<=$\n",
+        "### e\n",
+        "### Operadores lógicos: $and$, $or$, $not$"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5eY_XPmrltov",
+        "colab": {}
+      },
+      "source": [
+        "# 1º item da lista - Nome do veículo\n",
+        "# 2º item da lista - Ano de fabricação\n",
+        "# 3º item da lista - Veículo é zero km?\n",
+        "\n",
+        "dados = [\n",
+        "    ['Jetta Variant', 2003, False],\n",
+        "    ['Passat', 1991, False],\n",
+        "    ['Crossfox', 1990, False],\n",
+        "    ['DS5', 2019, True],\n",
+        "    ['Aston Martin DB4', 2006, False],\n",
+        "    ['Palio Weekend', 2012, False],\n",
+        "    ['A5', 2019, True],\n",
+        "    ['Série 3 Cabrio', 2009, False],\n",
+        "    ['Dodge Jorney', 2019, False],\n",
+        "    ['Carens', 2011, False]\n",
+        "]\n",
+        "dados"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "nyb0iDH1ltoy",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5MlITJppltoy",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "51Js0kXD0aRH"
+      },
+      "source": [
+        "### List comprehensions"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Ly4QUX5J0aRI",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "CKjrvO5Tltoz"
+      },
+      "source": [
+        "# 4.4 Instruções *if-else* e *if-elif-else*\n",
+        "\n",
+        "#### Formato padrão\n",
+        "\n",
+        "```\n",
+        "if <condição>:\n",
+        "    <instruções caso a condição seja verdadeira>\n",
+        "else:\n",
+        "    <instruções caso a condição não seja verdadeira>\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "K_VORb47ltoz",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "vhz5T7jDlto1",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "XlvlpPjhlto1",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Z2-8WeN1lto2"
+      },
+      "source": [
+        "#### Formato padrão\n",
+        "\n",
+        "```\n",
+        "if <condição 1>:\n",
+        "    <instruções caso a condição 1 seja verdadeira>\n",
+        "elif <condição 2>:\n",
+        "    <instruções caso a condição 2 seja verdadeira>\n",
+        "elif <condição 3>:\n",
+        "    <instruções caso a condição 3 seja verdadeira>\n",
+        "                        .\n",
+        "                        .\n",
+        "                        .\n",
+        "else:\n",
+        "    <instruções caso as condições anteriores não sejam verdadeiras>\n",
+        "```"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "ggrbaB4Tlto2",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "KJgRc1F9lto3",
+        "colab": {}
+      },
+      "source": [
+        "print('AND')\n",
+        "print(f'(True and True) o resultado é: {True and True}')\n",
+        "print(f'(True and False) o resultado é: {True and False}')\n",
+        "print(f'(False and True) o resultado é: {False and True}')\n",
+        "print(f'(False and False) o resultado é: {False and False}')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "sb0mSh-o0aRM",
+        "colab": {}
+      },
+      "source": [
+        "print('OR')\n",
+        "print(f'(True or True) o resultado é: {True or True}')\n",
+        "print(f'(True or False) o resultado é: {True or False}')\n",
+        "print(f'(False or True) o resultado é: {False or True}')\n",
+        "print(f'(False or False) o resultado é: {False or False}')"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "AfNdTPzElto3",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5bN7SuvTlto4",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "dDEl3Vfglto4",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Ot4HLQlelto5",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "FN26ZBKJlto5",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "aRfQfubxlto6"
+      },
+      "source": [
+        "# <font color=green> 5. NUMPY BÁSICO\n",
+        "---\n",
+        "\n",
+        "Numpy é a abreviação de Numerical Python e é um dos pacotes mais importantes para processamento numérico em Python. Numpy oferece a base para a maioria dos pacotes de aplicações científicas que utilizem dados numéricos em Python (estruturas de dados e algoritmos). Pode-se destacar os seguintes recursos que o pacote Numpy contém:\n",
+        "\n",
+        "- Um poderoso objeto array multidimensional;\n",
+        "- Funções matemáticas sofisticadas para operações com arrays sem a necessidade de utilização de laços *for*;\n",
+        "- Recursos de algebra linear e geração de números aleatórios\n",
+        "\n",
+        "Além de seus óbvios usos científicos, o pacote NumPy também é muito utilizado em análise de dados como um eficiente contêiner multidimensional de dados genéricos para transporte entre diversos algoritmos e bibliotecas em Python.\n",
+        "\n",
+        "**Versão:** 1.16.5\n",
+        "\n",
+        "**Instalação:** https://scipy.org/install.html\n",
+        "\n",
+        "**Documentação:** https://numpy.org/doc/1.16/"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "RtG2-g1ultme"
+      },
+      "source": [
+        "### Pacotes\n",
+        "\n",
+        "Existem diversos pacotes Python disponíveis para download na internet. Cada pacote tem como objetivo a solução de determinado tipo de problema e para isso são desenvolvidos novos tipos, funções e métodos.\n",
+        "\n",
+        "Alguns pacotes são bastante utilizados em um contexto de ciência de dados como por exemplo:\n",
+        "\n",
+        "- Numpy\n",
+        "- Pandas\n",
+        "- Scikit-learn\n",
+        "- Matplotlib\n",
+        "\n",
+        "Alguns pacotes não são distribuídos com a instalação default do Python. Neste caso devemos instalar os pacotes que necessitamos em nosso sistema para podermos utilizar suas funcionalidades."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "b8prsQjmltme"
+      },
+      "source": [
+        "### Importando todo o pacote"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "lP0tqXHLltmf",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3IO9pmgQIxFp",
+        "colab_type": "text"
+      },
+      "source": [
+        "https://numpy.org/doc/1.16/reference/generated/numpy.arange.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Y40UP3K7ltmg",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "84-53f4Lltmh"
+      },
+      "source": [
+        "### Importando todo o pacote e atribuindo um novo nome "
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "CzESWck7ltmi",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "RC7Dr5Viltmj",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "WWawttSpltml"
+      },
+      "source": [
+        "### Importando parte do pacote"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "8kTeo3Ltltmo",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "4LPnpiEwltmt",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "VSmffnCklto6"
+      },
+      "source": [
+        "# 5.1 Criando arrays Numpy"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Wqpin_-Plto8",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "ock4Ku-Ulto8"
+      },
+      "source": [
+        "### A partir de listas\n",
+        "\n",
+        "https://numpy.org/doc/1.16/user/basics.creation.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "82H-09CQlto9",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "8VYE3JSYlto9",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OBsa5Cfplto-",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "RfQ3jJSAlto-"
+      },
+      "source": [
+        "https://numpy.org/doc/1.16/user/basics.types.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "6yLpkJcAlto-",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "1pFx86QPlto_"
+      },
+      "source": [
+        "### A partir de dados externos\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/generated/numpy.loadtxt.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "26pQLNgrlto_",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "FoP42bdpltpA",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "MNPjZJbYltpA",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "_wnTg0wJltpB"
+      },
+      "source": [
+        "### Arrays com duas dimensões"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Gt1dL27GltpB",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        "dados = [ \n",
+        "    ['Rodas de liga', 'Travas elétricas', 'Piloto automático', 'Bancos de couro', 'Ar condicionado', 'Sensor de estacionamento', 'Sensor crepuscular', 'Sensor de chuva'],\n",
+        "    ['Central multimídia', 'Teto panorâmico', 'Freios ABS', '4 X 4', 'Painel digital', 'Piloto automático', 'Bancos de couro', 'Câmera de estacionamento'],\n",
+        "    ['Piloto automático', 'Controle de estabilidade', 'Sensor crepuscular', 'Freios ABS', 'Câmbio automático', 'Bancos de couro', 'Central multimídia', 'Vidros elétricos']\n",
+        "]\n",
+        "dados"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "IlbYeZPkltpC",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "FgjmWozgltpD",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "TDM9HskUltpD",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bBmnzpF5ltpE",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "cPbkST9pltpE"
+      },
+      "source": [
+        "### Comparando desempenho com listas"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "tTPC-G4vltpE",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "PIC-ndg9ltpF",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "vXy57nk2ltpF",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "I94lVgCRltpG",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "ul4MuKyTltpG"
+      },
+      "source": [
+        "# 5.2 Operações aritméticas com arrays Numpy"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "QwnxO_rYltpH"
+      },
+      "source": [
+        "### Operações entre arrays e constantes"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "63KVHPK0ltpH",
+        "colab": {}
+      },
+      "source": [
+        "km = [44410., 5712., 37123., 0., 25757.]\n",
+        "anos = [2003, 1991, 1990, 2019, 2006]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "AryIZaBIltpH",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "s8GvEk4HltpI",
+        "colab": {}
+      },
+      "source": [
+        "km = np.array([44410., 5712., 37123., 0., 25757.])\n",
+        "anos = np.array([2003, 1991, 1990, 2019, 2006])"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "aUnYV7OultpI",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "vg5yZ9IpltpJ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "qn1PUsM9ltpJ"
+      },
+      "source": [
+        "### Operações entre arrays"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "gU_d5aZkltpJ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "U9DXntUEltpK",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "n0rPxgY1ltpL",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "o4-gsGICltpN"
+      },
+      "source": [
+        "### Operações com arrays de duas dimensões"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "VT71Pbb3ltpN",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bgDe00q8ltpO",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "jIQU2ugKltpP",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "dsgz-E5ZltpP"
+      },
+      "source": [
+        "![1410-img01.png](https://caelum-online-public.s3.amazonaws.com/1410-pythondatascience/01/1410-img01.png)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "imANn6HultpQ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Nkp9ljkvltpQ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "njJ2z3HJltpR",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "4CAwtS0-ltpR"
+      },
+      "source": [
+        "# 5.3 Seleções com arrays Numpy"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "QDAT1vODltpS"
+      },
+      "source": [
+        "![1410-img01.png](https://caelum-online-public.s3.amazonaws.com/1410-pythondatascience/01/1410-img01.png)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "nZpPGS2TltpS",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "b--BIPcOltpT"
+      },
+      "source": [
+        "![1410-img02.png](https://caelum-online-public.s3.amazonaws.com/1410-pythondatascience/01/1410-img02.png)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "86-hOHa7ltpT"
+      },
+      "source": [
+        "### Indexação \n",
+        "\n",
+        "<font color=red>**Observação:**</font> A indexação tem origem no zero."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "mr0Q_X0JltpT",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "VxiR_IgdltpU",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "xGDomIyAltpU",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "QEO5Za5PltpV",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "rvkeMK8KltpV",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "X8c-lJRJltpW",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "fCWUSI1zltpZ"
+      },
+      "source": [
+        "## <font color=green>**Dica:**</font>\n",
+        "### *ndarray[ linha ][ coluna ]* ou *ndarray[ linha, coluna ]*"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "Nxc3uY-ZltpZ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "xp8ByjualtpZ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "7osmTUC4ltpa"
+      },
+      "source": [
+        " ### Fatiamentos\n",
+        " \n",
+        "A sintaxe para realizar fatiamento em um array Numpy é $i : j : k$ onde $i$ é o índice inicial, $j$ é o índice de parada, e $k$ é o indicador de passo ($k\\neq0$)\n",
+        " \n",
+        "<font color=red>**Observação:**</font> Nos fatiamentos (*slices*) o item com índice i é **incluído** e o item com índice j **não é incluído** no resultado."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "HEx4TbNlltpa"
+      },
+      "source": [
+        "![1410-img01.png](https://caelum-online-public.s3.amazonaws.com/1410-pythondatascience/01/1410-img01.png)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "tlaD1SENltpb",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "vXLIO1cVltpc",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "kYLgsQcHltpc",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "H2MJpIasltpd",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "YVzf4fNCltpe",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bPyQsUFPltpf",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "IRxfixG-ltpg",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "wfoJ84haltph",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "UeejSXUAltph",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "-fW4EXIqltpi"
+      },
+      "source": [
+        "### Indexação com array booleano\n",
+        "\n",
+        "<font color=red>**Observação:**</font> Seleciona um grupo de linhas e colunas segundo os rótulos ou um array booleano."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "MgmH-rCSltpi",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "HN1i-BlLltpj",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "iXJa9tL4ltpj",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "54gH6X5eltpk",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "F3z6zMELltpk",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "pk8A68z1ltpl",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "WUVMN29_ltpm",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Acw1DffHltpn"
+      },
+      "source": [
+        "# 5.4 Atributos e métodos de arrays Numpy"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "RBnSne6Eltpo"
+      },
+      "source": [
+        "### Atributos\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/arrays.ndarray.html#array-attributes"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "stjvD6m8ltpo",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "uKqPxg2Zltpo"
+      },
+      "source": [
+        "## *ndarray.shape*\n",
+        "\n",
+        "Retorna uma tupla com as dimensões do array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "gmaZhF04ltpp",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "XaY6oXkmltpp"
+      },
+      "source": [
+        "## *ndarray.ndim*\n",
+        "\n",
+        "Retorna o número de dimensões do array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "inJ4HDjaltpq",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "ESgVt5xOltpq"
+      },
+      "source": [
+        "## *ndarray.size*\n",
+        "\n",
+        "Retorna o número de elementos do array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "BWr4efoiltpq",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Ox8JlBM3ltpr"
+      },
+      "source": [
+        "## *ndarray.dtype*\n",
+        "\n",
+        "Retorna o tipo de dados dos elementos do array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "npiL84Vfltpu",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "j7uPN16oltpv"
+      },
+      "source": [
+        "## *ndarray.T*\n",
+        "\n",
+        "Retorna o array transposto, isto é, converte linhas em colunas e vice versa."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bLjrrx56ltpv",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5A9SlJQvltpw",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "e9r6ryTrltpw"
+      },
+      "source": [
+        "### Métodos\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/arrays.ndarray.html#array-methods"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "SR9KYy-0ltpw"
+      },
+      "source": [
+        "## *ndarray.tolist()*\n",
+        "\n",
+        "Retorna o array como uma lista Python."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "C2aTAwOXltpw",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "bHxcxugPltpx"
+      },
+      "source": [
+        "## *ndarray.reshape(shape[, order])*\n",
+        "\n",
+        "Retorna um array que contém os mesmos dados com uma nova forma."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "lwESxO71ltpx",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "sh9poyfzltpy",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "5332Xu8-ltpy",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "2RoZvbgHltpz",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "6q0dJZ-dltp0",
+        "colab": {}
+      },
+      "source": [
+        "km = [44410, 5712, 37123, 0, 25757]\n",
+        "anos = [2003, 1991, 1990, 2019, 2006]"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bs56aGrkltp0",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "s_GkTk2fltp1",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "xodm8DVZltp1",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Tdj5iArbltp2"
+      },
+      "source": [
+        "## *ndarray.resize(new_shape[, refcheck])*\n",
+        "\n",
+        "Altera a forma e o tamanho do array."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "vB2zxCDtltp2",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "IMv0m4Multp2",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "wpAi9928ltp3",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "CJyuKqaFltp3",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "bj_iPZAultp4",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "GPSk7Q_Dltp4"
+      },
+      "source": [
+        "# 5.5 Estatísticas com arrays Numpy\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/arrays.ndarray.html#calculation\n",
+        "\n",
+        "e\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/routines.statistics.html\n",
+        "\n",
+        "e\n",
+        "\n",
+        "https://numpy.org/doc/1.16/reference/routines.math.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "RH2u1orXltp5",
+        "colab": {}
+      },
+      "source": [
+        "anos = np.loadtxt(fname = \"carros-anos.txt\", dtype = int)\n",
+        "km = np.loadtxt(fname = \"carros-km.txt\")\n",
+        "valor = np.loadtxt(fname = \"carros-valor.txt\")"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "wbITF7r6ltp5",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "U_x3SOVDltp7"
+      },
+      "source": [
+        "https://numpy.org/doc/1.16/reference/generated/numpy.column_stack.html"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "wefxl-XBltp8",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "OzDTTmj8ltp_",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "Me6yUU_RltqA"
+      },
+      "source": [
+        "## *np.mean()*\n",
+        "\n",
+        "Retorna a média dos elementos do array ao longo do eixo especificado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "MNEKcP38ltqA",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "sekHQ84zltqB",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "RpyETIVSltqC",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "_-kpcTI8ltqD",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "71jViVBUltqE"
+      },
+      "source": [
+        "## *np.std()*\n",
+        "\n",
+        "Retorna o desvio padrão dos elementos do array ao longo do eixo especificado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "lEwUbPx2ltqE",
+        "scrolled": true,
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "JTUH-vAeltqG"
+      },
+      "source": [
+        "## *ndarray.sum()*\n",
+        "\n",
+        "Retorna a soma dos elementos do array ao longo do eixo especificado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "jIi3yoaWltqG",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "X3QYbdYLltqH",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "colab_type": "text",
+        "id": "WbBD5ixaltqH"
+      },
+      "source": [
+        "## *np.sum()*\n",
+        "\n",
+        "Retorna a soma dos elementos do array ao longo do eixo especificado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "omB6kgWgltqH",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "LiD4G3kQltqI",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab_type": "code",
+        "id": "kpakpnntltqJ",
+        "colab": {}
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
